@@ -7,6 +7,7 @@ import {
 } from '@angular/google-maps';
 import { PlaceSearchResult } from './place-autocomplete.component';
 import { BehaviorSubject, map } from 'rxjs';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-map-display',
@@ -46,7 +47,6 @@ export class MapDisplayComponent implements OnInit {
   >(undefined);
 
   constructor(private directionsService: MapDirectionsService) {}
-
   ngOnInit(): void {}
 
   ngOnChanges() {

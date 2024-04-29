@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {
   PlaceAutocompleteComponent,
@@ -7,6 +7,7 @@ import {
 import { PlaceCardComponent } from './components/place-card.component';
 import { MapDisplayComponent } from './components/map-display.component';
 import { NgIf } from '@angular/common';
+import { Loader } from '@googlemaps/js-api-loader';
 
 @Component({
   selector: 'app-root',
@@ -91,7 +92,32 @@ import { NgIf } from '@angular/common';
     `,
   ],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit, OnInit {
+  ngAfterViewInit(): void {}
   fromValue: PlaceSearchResult = { address: '' };
   toValue: PlaceSearchResult = { address: '' };
+
+  ngOnInit(): void {
+    /*  const loader = new Loader({
+      apiKey: 'AIzaSyBrkygBTW5BHfNxdAxxErprHzpYbqhYeRo',
+      version: 'weekly',
+      libraries: [
+        'places',
+        'routes',
+        'marker',
+        'geometry',
+        'journeySharing',
+        'drawing',
+        'core',
+        'maps',
+        'geocoding',
+        'streetView',
+      ],
+    });
+
+    loader.importLibrary('maps').then(() => {
+      // Aquí puedes utilizar la API de Google Maps de manera segura
+      console.log('Google Maps API cargada correctamente');
+    }); */
+  }
 }
